@@ -1,5 +1,9 @@
 <?php
 include("head.php");
+if(!(isset($_SESSION['user'])))
+{
+	header('location:logout.php');
+}
 ?>
 	<style>
 	body

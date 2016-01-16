@@ -66,6 +66,7 @@ if(!(isset($_SESSION['user'])))
 <body >
 
 <?php
+
 include("header.php");
 $uid=mysqli_real_escape_string($con,$_GET['u']);
 	$q="SELECT * FROM user WHERE id='{$uid}'";
@@ -145,7 +146,7 @@ $uid=mysqli_real_escape_string($con,$_GET['u']);
 							$person=$nameu." ".$snameu;
 							?>
 							<div class="righted" style="text-align:right;">
-							<a href="profile.php?u=<?php echo $showrows['mto'];?>" style="color:black;"><b><?php echo $person;?></b></a><?php
+							<a href="profile.php?u=<?php echo $showrows['mfrom'];?>" style="color:black;"><b><?php echo $person;?></b></a><?php
 						$msg=$showrows['mbody'];
 						$date_added= $showrows['date'];
 						$time_added=$showrows['time'];
@@ -172,10 +173,10 @@ $uid=mysqli_real_escape_string($con,$_GET['u']);
 							?>]</b><br><span><?php echo $msg;?></span><hr></div><?php
 						}
 						else
-						{//For msg to = user
+						{//For msg from = user
 							$person=$name." ".$sname;
 							?>
-							<a href="profile.php?u=<?php echo $showrows['mto'];?>" style="color:brown"><b><?php echo $person;?></b></a><?php
+							<a href="profile.php?u=<?php echo $showrows['mfrom'];?>" style="color:brown"><b><?php echo $person;?></b></a><?php
 						$msg=$showrows['mbody'];
 						$date_added= $showrows['date'];
 						$time_added=$showrows['time'];
@@ -226,8 +227,7 @@ $uid=mysqli_real_escape_string($con,$_GET['u']);
 				{
 					$toid=$sentrow['mto'];
 					$retrive=mysqli_query($con,"SELECT * FROM user WHERE id='$toid'");
-					while($retrow=mysqli_fetch_array($retrive))
-					{
+					$retrow=mysqli_fetch_array($retrive);
 						$skips=0;
 						$ids=$retrow[0];
 						foreach($rechecks as $sen)
@@ -255,7 +255,7 @@ $uid=mysqli_real_escape_string($con,$_GET['u']);
 				<h5 style="text-align:center;"><b><?php echo $names." ".$snames; ?></b></h5>
 						<?php
 						
-					}
+					
 					
 				}
 			?>
@@ -271,8 +271,8 @@ $uid=mysqli_real_escape_string($con,$_GET['u']);
 					
 					$fromid=$recrow['mfrom'];
 					$retriver=mysqli_query($con,"SELECT * FROM user WHERE id='$fromid'");
-					while($retrowr=mysqli_fetch_array($retriver))
-					{
+					$retrowr=mysqli_fetch_array($retriver);
+					
 						$skipr=0;
 						$idr=$retrowr[0];
 						foreach($recheckr as $senr)
@@ -300,7 +300,7 @@ $uid=mysqli_real_escape_string($con,$_GET['u']);
 				<h5 style="text-align:center;"><b><?php echo $namer." ".$snamer; ?></b></h5>
 						<?php
 						
-					}
+					
 					
 				}
 			?>

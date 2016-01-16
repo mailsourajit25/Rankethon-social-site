@@ -90,8 +90,8 @@ include("head.php");
 }
 	.pospic
 	{
-		width:60px;
-		height:60px;
+		width:50px;
+		height:50px;
 		overflow: hidden;
 		border-radius:50%;
 		border:2px solid white;
