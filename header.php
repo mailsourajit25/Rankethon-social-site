@@ -49,7 +49,7 @@ $dob=$row['dob'];
 					<li><a href="home.php?u=<?php echo $id;?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b> Home</b></a></li>
 					<li><a href="profile.php?u=<?php echo $id;?>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><?php echo "<b>$name</b>";?></a></li>
 					<li class="dropdown">
-						<a id="noti" name="notify" id="notify" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<a id="noti" name="notify"  data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
 						<?php
 						$num_req_query=mysqli_query($con,"SELECT COUNT(id) FROM request WHERE touser='{$id}'");

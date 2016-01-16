@@ -264,6 +264,7 @@ $check_pic = mysqli_query($con,"SELECT profpic FROM user WHERE id='{$id}'");
 						$friend_query=mysqli_query($con,"SELECT friend_array FROM user WHERE id='{$uid}'");
 						$friend_query_row=mysqli_fetch_array($friend_query);
 						$explode_friend_query=explode(",",$friend_query_row[0]);
+						$cempty=0;//check if newsfeed is empty or not
 						if($friend_query_row[0]=="")
 							echo '<h1 style="color:brown;"><b>You dont have any friends to see their posts  </b></h1>';
 						else
@@ -271,10 +272,8 @@ $check_pic = mysqli_query($con,"SELECT profpic FROM user WHERE id='{$id}'");
 						foreach($explode_friend_query as $listitem)
 						{
 						$getposts = mysqli_query($con,"SELECT * FROM posts WHERE user_posted_to='$listitem' ORDER BY id DESC") or die(mysqli_error($con));
-						if(mysqli_num_rows($getposts)==0)
-							echo '<h1 style="color:brown;"><b>Your friends does not have any posts   </b></h1>';
-						else
-						{	
+						if(mysqli_num_rows($getposts)!=0)
+						{	$cempty=1;
 								while ($rowp = mysqli_fetch_array($getposts))//WHILE LOOP STARTS HERE 
 								{
 									$idp = $rowp['id'];
@@ -383,6 +382,8 @@ $check_pic = mysqli_query($con,"SELECT profpic FROM user WHERE id='{$id}'");
 								<?php }
 						}
 								}
+								if($cempty==0)//if there are no posts in any friends timeline
+									echo '<h1 style="color:brown;"><b>Your friends does not have any posts  </b></h1>';
 								}
 								?>
 </div>

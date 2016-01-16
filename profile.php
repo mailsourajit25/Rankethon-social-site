@@ -256,7 +256,7 @@ $check_pic = mysqli_query($con,"SELECT profpic FROM user WHERE id='{$uid}'");
 						//For not allowing friends to send request to each other
 						$check_friend=mysqli_query($con,"SELECT friend_array FROM user WHERE id='{$id}'");
 						$check_friend_row=mysqli_fetch_array($check_friend);
-						$explode_friend_array=explode(",",$check_friend_row[0]);//Here ',' acts as a delimter
+						$explode_friend_array=explode(",",$check_friend_row[0]);//Here ',' acts as a delimiter
 						if($check_friend_row=="")
 							$explode_friend_array=count(NULL);//Since explode returns something even when the array is empty so this is done to cure it
 						$found=0;

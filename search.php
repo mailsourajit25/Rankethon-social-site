@@ -63,7 +63,7 @@ else
 		$studyh=ucfirst(strtolower($row1['study']));
 		$workh=ucfirst(strtolower($row1['work']));
 		$streamh=ucfirst(strtolower($row1['stream']));
-		if ($sea_pic == "")
+		if ($sea_pic == "" || !file_exists("userdata/profile_pics/$sea_pic"))
 				{
 					$sea_picu = "images/default_pic.jpg";
 				}

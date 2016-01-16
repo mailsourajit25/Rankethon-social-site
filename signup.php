@@ -98,8 +98,8 @@ if(isset($_SESSION['user']))
 					<div class="modal-body" style="padding:40px 50px;">
 						<form role="form" action="" method="POST">
 							<div class="form-group">
-								<label for="username"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Email</label>
-								<input type="text" class="form-control" name="uname" placeholder="Enter Email">
+								<label for="usn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Email</label>
+								<input type="text" class="form-control" name="uname" id="usn" placeholder="Enter Email">
 							</div>
 							<div class="form-group">
 								<label for="pass"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Password</label>
@@ -125,7 +125,7 @@ if(isset($_POST['login']))
 	$query="SELECT * FROM user WHERE email='{$emailid}'";
 	$result=mysqli_query($con,$query);
 	$row=mysqli_fetch_array($result);
-	$num=count($row);
+	$num=mysqli_num_rows($result);
 	?>
 	<div class="alert alert-danger">
 	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -148,7 +148,7 @@ if(isset($_POST['login']))
 			echo "Username password does not match";
 	}
 	?>
-	</strong> .Please try again! 
+	</strong> .Please try again! <?php echo $num;?>
 	</div>
 	<?php
 }
@@ -261,6 +261,7 @@ if(isset($_POST['submit']))
 		if (!isset($_POST["gender"]))
 			{
 				echo "<br><font color=red><b>Gender is Mandatory</b></font><br>";
+				$flag=0;
 			}
 		else
 			{
