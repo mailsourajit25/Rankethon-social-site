@@ -224,7 +224,7 @@ include("header.php");
 			</form>
 			</div>
 			<div class="col-md-2">
-			</div><!--This part needs to be edited for changing cover picture-->
+			</div><!--changing cover picture-->
 			<div class="col-md-5">
 			<form role="form" action="" method="POST" enctype="multipart/form-data">
 				<h4><b>Change Cover picture</b></h4>

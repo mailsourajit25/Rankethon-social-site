@@ -536,7 +536,7 @@ $check_pic = mysqli_query($con,"SELECT profpic FROM user WHERE id='{$uid}'");
 					<?php
 						$postp= false;
 						if(isset($_POST['post'])){
-						$postp=$_POST['post'];
+						$postp=rtrim($_POST['post']," ");//Delete space from the end of the string 
 						}	
 						if ($postp!="") 
 						{
@@ -642,7 +642,7 @@ $check_pic = mysqli_query($con,"SELECT profpic FROM user WHERE id='{$uid}'");
 							<div class="clearfix"></div>
 							<span style="font-weight:700"><?php echo $body;?></span>
 						</div>
-						<div class="panel-footer" class=="display:inline"> 
+						<div class="panel-footer" > 
 						<iframe src="likes.php?id=<?php echo $id;?>&pid=<?php echo $idp;?>" frameBorder="0"  style='overflow:hidden;height: 35px; width: 123px;'></iframe>
 						<a href='javascript:void(0)' onClick="javascript:toggle<?php echo $idp?>()" style="color:grey;position:absolute;padding-top:6.5px;margin-left:0px;"><b>Comments</b></a>
 						<div id='toggleComment<?php echo $idp;?>' style="display:none;">

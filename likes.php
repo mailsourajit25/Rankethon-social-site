@@ -124,10 +124,11 @@ if($change==0)
 <?php 
 }
 else
-{?>
+{ ?>
 <button type="submit" id="unlike" name="unlike<?php echo $pid;?>"  class="btn btn-link" style="color:#1aa3ff;text-decoration:none;box-shadow: 0px 0px 0px #fff;">
 <span class="badge"><?php echo $totlikes;?> <span class="glyphicon glyphicon-thumbs-up"></span></span> <b>Unlike </b></button>
 <?php
+
 }
 ?>
 </form>

@@ -116,7 +116,7 @@ if ($profilepic == "" || !file_exists("userdata/profile_pics/$profilepic"))
 						<?php
 						
 						if(isset($_POST['subcom'.$postid]))
-						{	$postbody=$_POST['comment'.$postid];
+						{	$postbody=rtrim($_POST['comment'.$postid]," ");
 							if($postbody!="")
 							{$res=mysqli_query($con,"INSERT INTO comment VALUES('','$postby','$postto','$postbody','$postid')");}			
 						}
